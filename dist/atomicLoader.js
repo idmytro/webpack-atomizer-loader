@@ -104,7 +104,8 @@ var parseAndGenerateFile = function parseAndGenerateFile(configPath, source) {
             }
         }
 
-        var finalConfig = atomizer.getConfig(foundClasses, pathConfig.configs || {});
+        var finalConfig = atomizer.getConfig(foundClasses, Object.assign({}, pathConfig.configs));
+
         var cssString = atomizer.getCss(finalConfig, pathConfig.options || {});
 
         var pipeline = (0, _postcss2.default)(validPostcssPlugins);
